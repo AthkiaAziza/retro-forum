@@ -53,26 +53,28 @@
                 </div>
             </div>
         </div>
+        <!-- avatar -->
+        
         <!-- Banner section -->
-        <div class="bg-[#12132D] bg-no-repeat bg-cover rounded-[32px] lg:px-20 mx-10 p-32 pt-20"
+        <div class="bg-[#12132D] bg-no-repeat bg-cover rounded-[32px] lg:px-20 mx-10 lg:p-32 pt-20"
             style="background-image: url(images/bgbanner.png);">
             <div>
                 <div class="hero-overlay bg-opacity-60"></div>
                 <div class="text-center text-neutral-content">
                     <div class="flex justify-between">
                         <div class="max-w-md">
-                            <h1 class="mb-5 text-[#FFFFFF] text-6xl font-black font-mulish">Welcome to the
+                            <h1 class="mb-5 text-[#FFFFFF] lg:text-6xl font-black font-mulish">Welcome to the
                                 <span>ReTro</span> Forum
                             </h1>
                             <p class="mb-5 text-[#FFFFFFCC] font-medium font-mulish text-xl">Share your favorite opinion
                                 and win and wp <br> forum coffee mug!</p>
                             <div class="join rounded-[50px]">
-                                <input class="input input-bordered join-item" placeholder="Search here anything" />
-                                <button
+                                <input id="search-field" class="input input-bordered join-item" placeholder="Search here anything" />
+                                <button onclick="handleSearch()"
                                     class="btn join-item rounded-r-full rounded-l-3xl bg-[#797DFC] text-white">Search</button>
                             </div>
                         </div>
-                        <div class="bg-[#FFFFFF] rounded-[32px] flex justify-between p-8 gap-6">
+                        <div class="bg-[#FFFFFF] rounded-[32px] flex justify-between lg:p-8 lg:gap-6">
                             <div class="mt-10">
                                 <p class="text-[#12132DCC] font-medium text-2xl font-mulish">Registered Users</p>
                                 <p class="text-[#12132DCC] font-medium text-2xl font-mulish mr-28">Forum</p>
@@ -99,17 +101,25 @@
                 <br> app. The integrated testing features allow for a streamlined .
             </p>
         </section>
+        
+        <!-- loading -->
+        <div id="loading-spinner" class="text-center mt-20 hidden">
+            <span class="loading loading-bars loading-lg"></span>
+        </div>
         <!-- discuss picture -->
-        <section class="flex justify-between lg:px-20 mx-10 p-28 pt-20 mt-24">
+        <section class="flex justify-between lg:px-20 p-28 pt-20 mt-24">
+            
+            
             <!-- 1st div section -->
-            <div>
+            <div id="div-container" class="space-y-7">
                 <!-- 1st div -->
-                <div class="div-container rounded-3xl bg-[#797DFC1A] p-3">
+                <!-- <div class="rounded-3xl bg-[#797DFC1A] p-3">
                     <div>
-                        <div class="flex items-center gap-8">
-                            <div class="avatar online">
-                                <div class="w-24 rounded-full">
-                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <div class="flex items-center lg:gap-8">
+                            <div>
+                                <div class="relative mt-5">
+                                    <img class="rounded-full w-[100px] h-[100px]" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <div class="w-[20px] h-[20px] rounded-full absolute -top-0 left-20 bg-red-900"></div>
                                 </div>
                             </div>
                             <div class="flex gap-3">
@@ -144,25 +154,27 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <!-- 2nd div section -->
-            <div class="div-container bg-[#12132D0D] rounded-3xl">
-                <div class="p-5 space-y-5">
-                    <div class="flex justify-between items-center">
-                        <p class="text-[#12132D] text-xl font-bold font-mulish">Title</p>
-                        <div class="flex gap-2">
-                            <img src="images/Frame (8).png" alt="">
-                            <p class="text-[#12132D99] text-base font-inter">Mark as read (4)</p>
+            <div>
+                <div id="accumulate-container" class="bg-[#12132D0D] rounded-3xl">
+                    <div class="p-5 space-y-5">
+                        <div class="flex justify-between items-center">
+                            <p class="text-[#12132D] text-xl font-bold font-mulish">Title</p>
+                            <div class="flex gap-2">
+                                <img src="images/Frame (8).png" alt="">
+                                <p class="text-[#12132D99] text-base font-inter">Mark as read <span id="accumulate">0</span></p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="bg-[#FFFFFF] rounded-2xl flex justify-between items-center gap-5 p-5">
-                        <p class="text-[#12132D] font-mulish font-semibold text-base">10 Kids Unaware of Their <br>
-                            Halloween Costume</p>
-                        <div class="flex gap-3">
-                            <img src="images/Vector (1).png" alt="">
-                            <p>1,568</p>
-                        </div>
+                        <!-- <div class="bg-[#FFFFFF] rounded-2xl flex justify-between items-center gap-5 p-5">
+                            <p class="text-[#12132D] font-mulish font-semibold text-base">10 Kids Unaware of Their <br>
+                                Halloween Costume</p>
+                            <div class="flex gap-3">
+                                <img src="images/Vector (1).png" alt="">
+                                <p>1,568</p>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -189,20 +201,18 @@
                 app. The <br> integrated testing features allow for a streamlined .</p>
         </div>
         <!-- picture div -->
-        <div class="div-container lg:px-20 mx-10 p-32">
+        <div id="latest-div-container" class="grid grid-cols-1 lg:grid-cols-3 mb-10">
             <!-- 1st div -->
-            <div>
+            <!-- <div>
 
                 <div class="card w-96 bg-base-100 space-y-4">
-                    <figure class="px-10 pt-10">
+                    <figure class="lg:px-10 pt-10">
                         <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes"
                             class="rounded-xl" />
                     </figure>
-                    <div class="flex justify-between ml-6 mr-6">
+                    <div class="flex gap-2 ml-6 mr-6">
                         <img src="images/Frame (7).png" alt="">
-                        <p class="text-[#12132D99] text-xl font-mulish">29</p>
-                        <p class="text-[#12132D99] text-xl font-mulish">January</p>
-                        <p class="text-[#12132D99] text-xl font-mulish">2024</p>
+                        <p class="text-[#12132D99] text-xl font-mulish">29 January 2024</p>
                     </div>
                     <p class="ml-6 mr-6 text-[#12132D] text-lg font-extrabold">What will a mars habitat force that <br>
                         impact in our daily life!!!</p>
@@ -221,10 +231,11 @@
                     </div>
 
                 </div>
-            </div>
-        </div>
+            </div>  -->
+            
+        </div> 
     </main>
-    <footer class="bg-slate-200 p-24">
+    <footer class="bg-slate-200 lg:p-24">
         <div class="space-y-8">
             <p class="text-[#12132D] text-4xl font-black font-mulish text-center">ReTro</p>
             <p class="text-[#12132DB3] text-base font-mulish text-center">Contrary to popular belief, Lorem Ipsum is not
